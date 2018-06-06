@@ -44,7 +44,7 @@
     console.log("losses: " + losses);
     console.log("Guesses remaining: " + guessesRemaining);
     console.log("Letters already guessed: " + lettersAlreadyGuessed);
-    console.log("-------------------------------------------------");
+    console.log("");
 
     // Collect letter from user
     document.onkeyup = function(event) {
@@ -55,7 +55,7 @@
             
             // If guessed letter is not found in word
             if (word.indexOf(guessedLetter) === -1) {
-                console.log("Guessed letter is not found in word!");
+
                 // Put guessedLetter in lettersAlreadyGuessed and decrement number of guesses remaining by one
                 lettersAlreadyGuessed.push(guessedLetter);
                 guessesRemaining = guessesRemaining - 1;
@@ -83,24 +83,23 @@
 
             // Guessed letter is found in word
             else {
-                console.log("guessed letter is found in word!");
+
                 // Comb through word letter by letter to determine positions at which the guessed letter occurs
                 for (var k=0; k<wordLength;k++) {
-                    console.log(k);
-                    console.log(word.charAt[k]);
+
                     // If the k-th index (i.e., the (k+1)th letter) of the word matches the guessed letter
-                    if (word.charAt[k] === guessedLetter) {
+                    if (word.charAt(k) === guessedLetter) {
                         
                         // If this is the first instance of the guessed letter occurring within the word
                         if ( lettersAlreadyGuessed.indexOf(guessedLetter) === -1 ) {
                             
                             // Put guessedLetter in letters already guessed list
                             lettersAlreadyGuessed.push(guessedLetter);
-                            console.log("letters already guessed, from inside: " + lettersAlreadyGuessed);
                         }
-                        console.log("letters already guessed, from outside: " + lettersAlreadyGuessed);
+
                         // Fill in applicable blank spaces
-                        blankedWord.charAt(2*k) = guessedLetter;
+
+                        blankedWord = blankedWord.substr(0, 2*k) + guessedLetter + " " + blankedWord.substr(2*(k+1));
 
                         // If all the blanks have been filled, reset game
                         if (blankedWord.indexOf("_") ===  - 1 ) {
@@ -133,7 +132,7 @@
             console.log("losses: " + losses);
             console.log("Guesses remaining: " + guessesRemaining);
             console.log("Letters already guessed: " + lettersAlreadyGuessed);
-            console.log("-------------------------------------------------");
+            console.log("");
 
         }
 
