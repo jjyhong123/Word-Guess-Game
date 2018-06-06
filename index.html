@@ -9,12 +9,11 @@
 
 <body>
     <p>Press any key to get started!</p>
-    <p>Wins: </p>
-    <p>Losses: </p>
-
-    <p></p>
-
-    <p>Number of guesses remaining: </p>
+    <p><span id="blanked-word"></span></p>
+    <br>
+    <p>Wins: <span id="wins"></span></p>
+    <p>Losses: <span id="losses"></span></p>
+    <p>Number of guesses remaining: <span id="guesses-remaining"></span></p>
     <p>Letters already guessed: <span id="letters-already-guessed"></span></p>
 </body>
 
@@ -33,18 +32,25 @@
         blankedWord = blankedWord + "_ ";
     }
 
+    // Initialize variables
     var wins = 0;
     var losses = 0;
     var guessesRemaining = 9;
     var lettersAlreadyGuessed = [];
 
-    console.log(word);
-    console.log(blankedWord);
-    console.log("wins: " + wins);
-    console.log("losses: " + losses);
-    console.log("Guesses remaining: " + guessesRemaining);
-    console.log("Letters already guessed: " + lettersAlreadyGuessed);
-    console.log("");
+    var blankedWordNode = document.getElementById("blanked-word");
+    var winsNode = document.getElementById("wins");
+    var lossesNode = document.getElementById("losses");
+    var guessesRemainingNode = document.getElementById("guesses-remaining");
+    var lettersAlreadyGuessedNode = document.getElementById("letters-already-guessed");
+
+    // Update HTML
+    blankedWordNode.textContent = blankedWord;
+    winsNode.textContent = wins;
+    lossesNode.textContent = losses;
+    guessesRemainingNode.textContent = guessesRemaining;
+    lettersAlreadyGuessedNode.textContent = lettersAlreadyGuessed;
+
 
     // Collect letter from user
     document.onkeyup = function(event) {
@@ -126,45 +132,19 @@
 
             }
 
-            console.log(word);
-            console.log(blankedWord);
-            console.log("wins: " + wins);
-            console.log("losses: " + losses);
-            console.log("Guesses remaining: " + guessesRemaining);
-            console.log("Letters already guessed: " + lettersAlreadyGuessed);
-            console.log("");
-
+            
+            // Update HTML
+            blankedWordNode.textContent = blankedWord;
+            winsNode.textContent = wins;
+            lossesNode.textContent = losses;
+            guessesRemainingNode.textContent = guessesRemaining;
+            lettersAlreadyGuessedNode.textContent = lettersAlreadyGuessed;
+            
         }
 
 
     };
 
-
-    
-
-    
-    
-
-
-
-    
-
-    
-    
-    /* Shit for your reference
-    
-
-    var userName = prompt("Whatever you enter will be stored in the variable userName:");
-    var confirmLove = confirm("Do you like me?");
-    
-    document.write("This text will overwrite the existing html.");
-
-    var userText = document.getElementById("user-text"); 
-
-    document.onkeyup = function(event) {
-        userText.textContent = event.key;
-    };
-    */
 
 </script> 
 
