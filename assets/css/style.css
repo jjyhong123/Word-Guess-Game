@@ -1,0 +1,15 @@
+.jumbotron {
+    background:url('../images/chemistry.jpg');
+    color: yellow;
+    text-align: center;
+}
+
+.lead {
+    font-size: 27px;
+}
+
+#torso {
+    padding: 0 40px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+}
